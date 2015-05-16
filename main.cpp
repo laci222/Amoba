@@ -1,10 +1,4 @@
-/*
-//  ITK C++ SDL projekt
-//     példaprogram  
-*/
 
-#include "graphics.hpp"
-using namespace genv;
 
 
 int main()
