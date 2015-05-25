@@ -4,6 +4,7 @@
 #include "graphics.hpp"
 #include "widgets.hpp"
 #include "button.hpp"
+#include "text.hpp"
 
 #include <vector>
 
@@ -12,7 +13,9 @@ struct jatekmester
 {
 protected:
     //Widgets *amoba;
-    std::vector<Button*> w;
+    std::vector<Button*> buttons;
+    std::vector<Text*> texts;
+
     std::vector< std::vector< int> > v;
     int jatekos=1; ///x vagy o jön, x=1, o=2
 
