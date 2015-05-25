@@ -13,13 +13,13 @@ struct jatekmester
 protected:
     int SX;
     int SY;
-    std::vector<Widgets*>w;
+    std::vector<Widgets*> w;
     std::vector< std::vector<int> > v;
 
 public:
     jatekmester(int _SX, int _SY);
     void start();
-    void matrix();
+    void matrix(int i, int j);
 
 };
 
@@ -28,6 +28,7 @@ struct grafikus
 protected:
 
 public:
+    void rajzol(std::vector<Widgets*> & w);
 
 };
 
