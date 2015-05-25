@@ -11,22 +11,23 @@
 struct jatekmester
 {
 protected:
+    int SX;
+    int SY;
+    std::vector<Widgets*>w;
     std::vector< std::vector<int> > v;
 
 public:
+    jatekmester(int _SX, int _SY);
     void start();
+    void matrix();
 
 };
 
 struct grafikus
 {
 protected:
-    vector<Widget*>w;
 
 public:
-
-
-
 
 };
 
