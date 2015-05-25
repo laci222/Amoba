@@ -3,7 +3,6 @@
 
 #include "graphics.hpp"
 #include "widgets.hpp"
-#include "amoba.hpp"
 #include "button.hpp"
 
 #include <vector>
@@ -12,10 +11,14 @@
 struct jatekmester
 {
 protected:
-    Widgets *amoba;
+    //Widgets *amoba;
+    std::vector<Button*> w;
+    std::vector< std::vector< int> > v;
+    int jatekos=1; ///x vagy o jön, x=1, o=2
 
 public:
-    jatekmester();
+    jatekmester(std::vector< std::vector< int> > _v);
+    void matrix(int i, int j);
     void start();
 
 };

@@ -17,8 +17,17 @@ Button::Button(int px, int py, int sx, int sy, string _felirat, function<void()>
 
 void Button::draw()
 {
-    gout<<color(200,200,200)<<move_to(x,y)<<box(size_x, size_y)<<move_to(x+2, y+2)<<color(40,40,40)<<box(size_x-4, size_y-4)
-    <<color(255,0,255)<<move_to(x+4,y+(size_y/2)+5)<<text(felirat);
+    gout<<color(200,200,200)<<move_to(x,y)<<box(size_x, size_y)<<move_to(x+2, y+2)<<color(40,40,40)<<box(size_x-4, size_y-4);
+
+    if(felirat=="O")
+    {
+        gout<<color(0,0,255);
+    }
+    else
+    {
+        gout<<color(255,0,0);
+    }
+    gout<<move_to(x+4,y+(size_y/2)+5)<<text(felirat);
 }
 
 void Button::handle(event ev)
