@@ -3,7 +3,7 @@
 
 int main()
 {
-    jatekmester ez(800,600);
+    jatekmester ez;
     ez.start();
     return 0;
 }

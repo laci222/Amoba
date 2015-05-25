@@ -3,33 +3,22 @@
 
 #include "graphics.hpp"
 #include "widgets.hpp"
+#include "amoba.hpp"
 #include "button.hpp"
-#include <vector>
 
+#include <vector>
 
 
 struct jatekmester
 {
 protected:
-    int SX;
-    int SY;
-    std::vector<Widgets*> w;
-    std::vector< std::vector<int> > v;
+    Widgets *amoba;
 
 public:
-    jatekmester(int _SX, int _SY);
+    jatekmester();
     void start();
-    void matrix(int i, int j);
 
 };
 
-struct grafikus
-{
-protected:
-
-public:
-    void rajzol(std::vector<Widgets*> & w);
-
-};
 
 #endif // APPLICATION_HPP_INCLUDED
