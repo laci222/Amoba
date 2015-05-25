@@ -15,13 +15,14 @@ protected:
     //Widgets *amoba;
     std::vector<Button*> buttons;
     std::vector<Text*> texts;
-
+    bool nyert=false;
     std::vector< std::vector< int> > v;
     int jatekos=1; ///x vagy o jön, x=1, o=2
 
 public:
     jatekmester(std::vector< std::vector< int> > _v);
     void matrix(int i, int j);
+    bool vizsgal(int ei, int ej);
     void start();
 
 };
