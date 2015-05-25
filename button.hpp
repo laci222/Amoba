@@ -15,6 +15,7 @@ public:
     Button(int px, int py, int sx, int sy, std::string _felirat, std::function<void()> fv);
     void draw();
     void handle(genv::event ev);
+    void UjFelirat(std::string s);
    // void kiir();
 };
 

@@ -17,8 +17,8 @@ Button::Button(int px, int py, int sx, int sy, string _felirat, function<void()>
 
 void Button::draw()
 {
-    gout<<color(50,200,100)<<move_to(x,y)<<box(size_x, size_y)<<move_to(x+2, y+2)<<color(140,40,240)<<box(size_x-4, size_y-4)
-    <<color(255,0,255)<<move_to(x+6,y+(size_y/2)+6)<<text(felirat);
+    gout<<color(200,200,200)<<move_to(x,y)<<box(size_x, size_y)<<move_to(x+2, y+2)<<color(40,40,40)<<box(size_x-4, size_y-4)
+    <<color(255,0,255)<<move_to(x+4,y+(size_y/2)+5)<<text(felirat);
 }
 
 void Button::handle(event ev)
@@ -28,4 +28,9 @@ void Button::handle(event ev)
     {
       fgv();
     }
+}
+
+void Button::UjFelirat(string s)
+{
+    felirat=s;
 }
