@@ -34,24 +34,22 @@ jatekmester::jatekmester(std::vector< std::vector< int> > _v): v(_v)
 
 void jatekmester::matrix(int i, int j)
 {
+
+    string nyertel=" X nyert";
     if(v[i][j]==0 && !nyert)
     {
+        szamlalo++;
         string kiir=" X kovetkezik";
         v[i][j]=jatekos;
         /// találat vizsgálat///
 
         nyert=vizsgal(i,j);
-        if(nyert)
-        {
-            string nyertel=" X nyert";
-            if(jatekos==2)
-            {
-                nyertel=" O nyert";
-            }
 
-            Text *t=new Text(730,60, 118, 22);
-            texts.push_back(t);
-            texts[1]->UjFelirat(nyertel);
+        /// betelt-e a pálya? ///
+        if(szamlalo==40*40)
+        {
+            nyertel=" Dontetlen";
+            nyert=true;
         }
 
         /// gombba jel berakása  ///
@@ -66,10 +64,39 @@ void jatekmester::matrix(int i, int j)
             buttons[i*40+j]->UjFelirat("O");
             jatekos=1;
         }
+        if(nyert)
+        {
+            if(jatekos==2)
+            {
+                nyertel=" O nyert";
+            }
+            texts[0]->UjFelirat(nyertel);
+            Button *b=new Button(730,60, 118, 22, "  Uj jatek", [&](){elolrol();});
+            buttons.push_back(b);
+            return;
+        }
+
         texts[0]->UjFelirat(kiir);
     }
 
 
+}
+
+void jatekmester::elolrol()
+{
+    for(unsigned int i=0; i<40; i++)
+    {
+        for(int j=0; j<40; j++)
+        {
+            v[i][j]=0;
+        }
+    }
+    nyert=false;
+    buttons.pop_back();
+    for(unsigned int i=0; i<buttons.size(); i++)
+        {
+            buttons[i]->UjFelirat(" ");
+        }
 }
 
 
@@ -111,7 +138,6 @@ bool jatekmester::vizsgal(int ei, int ej)
 
     if(szamlalo>4)
     {
-        cout<<"nyertel";
         return true;
     }
 
@@ -153,7 +179,6 @@ bool jatekmester::vizsgal(int ei, int ej)
 
     if(szamlalo>4)
     {
-        cout<<"nyertel";
         return true;
     }
 
@@ -198,7 +223,6 @@ bool jatekmester::vizsgal(int ei, int ej)
 
     if(szamlalo>4)
     {
-        cout<<"nyertel";
         return true;
     }
 
@@ -243,7 +267,6 @@ bool jatekmester::vizsgal(int ei, int ej)
 
     if(szamlalo>4)
     {
-        cout<<"nyertel";
         return true;
     }
 
@@ -259,6 +282,7 @@ void jatekmester::start()
 
     while( gin >> ev && ev.keycode != key_escape )
     {
+        gout<<move_to(0,0)<<color(0,0,0)<<box(900,681);
         for(unsigned int i=0; i<buttons.size(); i++)
         {
             buttons[i]->handle(ev);
