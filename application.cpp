@@ -35,7 +35,7 @@ jatekmester::jatekmester(std::vector< std::vector< int> > _v): v(_v)
 void jatekmester::matrix(int i, int j)
 {
 
-    string nyertel=" X nyert";
+    string nyertel=" O nyert";
     if(v[i][j]==0 && !nyert)
     {
         szamlalo++;
@@ -68,7 +68,7 @@ void jatekmester::matrix(int i, int j)
         {
             if(jatekos==2)
             {
-                nyertel=" O nyert";
+                nyertel=" X nyert";
             }
             texts[0]->UjFelirat(nyertel);
             Button *b=new Button(730,60, 118, 22, "  Uj jatek", [&](){elolrol();});
